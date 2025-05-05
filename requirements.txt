@@ -1,0 +1,10 @@
+Flask==3.0.2
+flask-socketio==5.3.6
+psutil==5.9.8
+llama-cpp-python==0.2.27
+python-dotenv==1.0.1
+langchain==0.0.150  # Ensure langchain library is included to handle text processing, embeddings, and vector stores
+faiss-cpu==1.7.4  # Required for the FAISS vector store
+sentence-transformers==2.2.0  # For sentence embeddings used in langchain
+requests
+

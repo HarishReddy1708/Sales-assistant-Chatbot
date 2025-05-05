@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gray-100 h-screen">
+    <div class="container mx-auto p-4 h-full flex flex-col">
+        <header class="text-center mb-4">
+            <h1 class="text-3xl font-bold text-gray-800">🚗 Porsche Chatbot</h1>
+            <p class="text-gray-600">Your personal Porsche expert</p>
+        </header>
+        
+        <!-- Name Input Screen -->
+        <div id="name-screen" class="flex-1 bg-white rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
+            <h2 class="text-2xl font-semibold mb-4">Welcome to Porsche Chatbot</h2>
+            <p class="text-gray-600 mb-6">Please enter your name to begin</p>
+            <div class="w-full max-w-md">
+                <input type="text" id="name-input" 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 mb-4"
+                       placeholder="Enter your name">
+                <button id="start-chat" 
+                        class="w-full bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600 focus:outline-none">
+                    Start Chat
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Options -->
+        <div id="menu-screen" class="hidden flex-1 bg-white rounded-lg shadow-lg p-4 mb-4">
+            <div class="grid grid-cols-2 gap-4">
+                <button class="menu-option p-4 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none" data-option="models">
+                    <h3 class="font-semibold">Porsche Models</h3>
+                    <p class="text-sm text-gray-600">Explore our lineup</p>
+                </button>
+                <button class="menu-option p-4 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none" data-option="dealerships">
+                    <h3 class="font-semibold">Dealership Locations</h3>
+                    <p class="text-sm text-gray-600">Find a dealer near you</p>
+                </button>
+                <button class="menu-option p-4 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none" data-option="test-drive">
+                    <h3 class="font-semibold">Test Drive</h3>
+                    <p class="text-sm text-gray-600">Schedule a test drive</p>
+                </button>
+                <button class="menu-option p-4 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none" data-option="build">
+                    <h3 class="font-semibold">Build Your Porsche</h3>
+                    <p class="text-sm text-gray-600">Configure your dream car</p>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Chat Interface -->
+        <div id="chat-screen" class="hidden flex-1 bg-white rounded-lg shadow-lg p-4 mb-4 overflow-y-auto">
+            <div class="space-y-4" id="messages">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <div class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                            🤖
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Menu Button -->
+        <button id="back-to-menu" class="hidden mb-4 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none">
+            Back to Menu
+        </button>
+
+        <!-- Chat Input -->
+        <div id="chat-input" class="hidden flex items-center space-x-2">
+            <input type="text" id="user-input" 
+                   class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                   placeholder="Type your message here...">
+            <button id="send-button" 
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">
+                Send
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
