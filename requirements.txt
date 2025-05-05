@@ -8,4 +8,5 @@ faiss-cpu==1.7.4  # Required for the FAISS vector store
 sentence-transformers==2.2.0  # For sentence embeddings used in langchain
 requests
 gunicorn
+eventlet  
 
