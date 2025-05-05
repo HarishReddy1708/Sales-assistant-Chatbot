@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import logging
 from utils.suggetions import get_suggested_questions
 from utils.response import ask_mistral
+import os
 
 load_dotenv()
 
@@ -57,4 +58,5 @@ def handle_message(message):
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    socketio.run(app, host="0.0.0.0", port=port)
